@@ -278,7 +278,7 @@ export function ProductSection() {
             </Link>
           </Button>
         </div>
-        <div className="mt-9 flex flex-wrap gap-2">
+        {/* <div className="mt-9 flex flex-wrap gap-2">
           {[
             "Whole spices",
             "Ground spices",
@@ -293,16 +293,16 @@ export function ProductSection() {
               {x}
             </span>
           ))}
-        </div>
+        </div> */}
         <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, i) => (
+          {products.map((product) => (
             <article
               key={product.name}
               className="group overflow-hidden border border-charcoal/10 bg-[#FBF9F3] transition duration-300 hover:-translate-y-1 hover:shadow-soft"
             >
               <Link
-                href="#inquiry"
-                aria-label={`Ask about ${product.name}`}
+                href="/products"
+                aria-label={`Explore ${product.name}`}
                 className="block"
               >
                 <div className="relative aspect-[1.42/1] overflow-hidden bg-cream">
@@ -321,9 +321,9 @@ export function ProductSection() {
                   </span>
                 </div>
                 <div className="p-5">
-                  <p className="text-[9px] font-bold uppercase tracking-label text-terracotta">
+                  {/* <p className="text-[9px] font-bold uppercase tracking-label text-terracotta">
                     Product {String(i + 1).padStart(2, "0")}
-                  </p>
+                  </p> */}
                   <h3 className="mt-2 font-display text-2xl text-forest">
                     {product.name}
                   </h3>
@@ -331,7 +331,7 @@ export function ProductSection() {
                     {product.description}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-2 text-[9px] font-bold uppercase tracking-[.13em] text-forest">
-                    Explore product{" "}
+                    Explore products{" "}
                     <MoveRight
                       size={14}
                       className="transition group-hover:translate-x-1"
@@ -342,10 +342,10 @@ export function ProductSection() {
             </article>
           ))}
         </div>
-        <p className="mt-6 text-[10px] leading-5 text-charcoal/50">
+        {/* <p className="mt-6 text-[10px] leading-5 text-charcoal/50">
           Product forms, grades, specifications and availability can be
           discussed to suit your requirements.
-        </p>
+        </p> */}
       </div>
     </section>
   );
@@ -650,11 +650,11 @@ export function Footer() {
           </h3>
           <ul className="mt-4 space-y-3">
             {[
-              ["Home", "#home"],
-              ["About us", "#about"],
-              ["Products", "#products"],
-              ["Certifications", "#certifications"],
-              ["Contact", "#inquiry"],
+              ["Home", "/#home"],
+              ["About us", "/#about"],
+              ["Products", "/products"],
+              ["Certifications", "/#certifications"],
+              ["Contact", "/#inquiry"],
             ].map(([label, href]) => (
               <li key={label}>
                 <Link
@@ -675,7 +675,7 @@ export function Footer() {
             {products.slice(0, 5).map((p) => (
               <li key={p.name}>
                 <Link
-                  href="#products"
+                  href="/products"
                   className="text-xs text-ivory/65 transition hover:text-ivory"
                 >
                   {p.name}
