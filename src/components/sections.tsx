@@ -11,10 +11,12 @@ import {
   Globe2,
   Handshake,
   Leaf,
+  Mail,
+  MapPin,
   MoveRight,
   PackageCheck,
+  Phone,
   Route,
-  Scale,
   ShieldCheck,
   Sprout,
   Wheat,
@@ -22,6 +24,7 @@ import {
 import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
+import { company } from "@/data/company";
 
 const advantages = [
   {
@@ -92,7 +95,7 @@ export function HeroSection() {
       <div className="section-wrap relative z-10 w-full py-24 md:py-32">
         <Reveal className="max-w-3xl">
           <p className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.22em] text-[#D2BB83]">
-            <span className="h-px w-9 bg-gold" /> Khushi Export · India
+            <span className="h-px w-9 bg-gold" /> {company.name} · India
           </p>
           <h1 className="max-w-3xl font-display text-5xl leading-[1.06] tracking-tight text-ivory sm:text-6xl md:text-7xl">
             The richness of Indian spices.
@@ -177,24 +180,22 @@ export function AboutSection() {
         <Reveal className="pt-3 lg:pl-3">
           <p className="eyebrow">A new chapter in a storied tradition</p>
           <h2 className="section-title mt-4 max-w-2xl">
-            Khushi Export — bringing India’s finest spices to the world.
+            Khushi Exim — bringing India’s finest spices, grains & pulses to the world.
           </h2>
           <p className="section-copy">
-            Khushi Export is an emerging Indian spice export brand inspired by
-            India’s rich agricultural and culinary heritage. Our vision is to
-            connect international businesses with a diverse range of authentic
-            Indian spices through quality-focused sourcing and meaningful
-            partnerships.
+            Khushi Exim is an Indian export business inspired by the country’s
+            rich agricultural and culinary heritage. We connect international
+            businesses with spices, grains and pulses through quality-focused
+            sourcing and meaningful partnerships.
           </p>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-charcoal/65">
-            From familiar kitchen essentials to fragrant specialties, we welcome
-            conversations with importers, distributors, wholesalers, food
-            manufacturers and private-label buyers looking for an Indian spice
-            partner.
+            We welcome conversations with importers, distributors, wholesalers,
+            food manufacturers and private-label buyers looking for an Indian
+            partner for spices, grains and pulses.
           </p>
           <div className="mt-7 grid gap-3 sm:grid-cols-2">
             {[
-              "A broad range of Indian spices",
+              "Spices, grains and pulses",
               "An international business outlook",
               "Flexible buyer conversations",
               "Partnership-led approach",
@@ -228,7 +229,7 @@ export function WhyChooseUs() {
       <div className="section-wrap">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">A considered way to work together</p>
-          <h2 className="section-title mt-3">Why choose Khushi Export?</h2>
+          <h2 className="section-title mt-3">Why choose Khushi Exim?</h2>
           <p className="section-copy mx-auto">
             Built around the qualities that matter in a dependable spice
             sourcing relationship.
@@ -238,9 +239,9 @@ export function WhyChooseUs() {
           {advantages.map(({ icon: Icon, title, copy }, i) => (
             <article
               key={title}
-              className="group min-h-[235px] border border-charcoal/10 bg-ivory p-6 transition duration-300 hover:-translate-y-1 hover:shadow-soft"
+              className="group min-h-[235px] border border-gold/25 bg-ivory p-6 shadow-[0_12px_32px_-4px_rgba(37,40,32,0.06)] transition-all duration-200 hover:border-gold focus-within:border-gold"
             >
-              <span className="grid size-11 place-items-center border border-gold/50 text-forest">
+              <span className="grid size-11 place-items-center rounded-lg bg-cream text-forest transition-colors duration-200 group-hover:bg-forest group-hover:text-ivory group-focus-within:bg-forest group-focus-within:text-ivory">
                 <Icon size={20} strokeWidth={1.5} />
               </span>
               <p className="mt-6 text-[9px] font-bold uppercase tracking-label text-terracotta">
@@ -267,8 +268,8 @@ export function ProductSection() {
             </p>
             <h2 className="section-title mt-3">Explore our products</h2>
             <p className="section-copy max-w-xl">
-              An introduction to the spices at the heart of India’s kitchens and
-              food traditions.
+              Explore our Indian spice selection, and contact us for current
+              product details on grains and pulses.
             </p>
           </div>
           <Button asChild variant="outline">
@@ -283,6 +284,7 @@ export function ProductSection() {
             "Ground spices",
             "Seeds & aromatic spices",
             "Specialty spices",
+            "Grains & pulses",
           ].map((x) => (
             <span
               key={x}
@@ -368,22 +370,22 @@ export function GrowthSection() {
             connections.
           </p>
         </div>
-        <div className="mt-12 grid gap-0 border-y border-ivory/20 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {priorities.map(({ icon: Icon, number, title, copy }) => (
             <article
               key={number}
-              className="border-b border-ivory/20 p-6 last:border-0 sm:border-r sm:last:border-r-0 lg:border-b-0"
+              className="flex min-h-[260px] flex-col justify-between rounded-lg border border-gold/25 bg-forest/40 p-6 transition-colors duration-200 hover:border-gold/60 sm:p-7"
             >
               <div className="flex items-center justify-between">
-                <span className="font-display text-sm italic text-gold">
+                <span className="font-display text-3xl font-semibold italic text-gold/55">
                   {number}
                 </span>
                 <Icon size={18} className="text-gold/80" strokeWidth={1.4} />
               </div>
-              <h3 className="mt-8 font-display text-xl leading-snug">
-                {title}
-              </h3>
-              <p className="mt-3 text-xs leading-6 text-ivory/65">{copy}</p>
+              <div className="mt-7">
+                <h3 className="font-display text-xl leading-snug">{title}</h3>
+                <p className="mt-3 text-xs leading-6 text-ivory/65">{copy}</p>
+              </div>
               <span className="mt-6 block h-px w-9 bg-gold/70" />
             </article>
           ))}
@@ -582,7 +584,7 @@ export function ContactIntro() {
     <div className="mb-7">
       <p className="eyebrow">Start a conversation</p>
       <h2 className="section-title mt-3">
-        Looking for a reliable spice export partner?
+        Looking for a reliable Indian export partner?
       </h2>
       <p className="mt-4 max-w-lg text-sm leading-7 text-charcoal/65">
         Tell us a little about your business and product requirements. We’ll use
@@ -594,7 +596,7 @@ export function ContactIntro() {
             icon: BriefcaseBusiness,
             text: "For importers, wholesalers & distributors",
           },
-          { icon: Wheat, text: "Whole, ground & specialty spices" },
+          { icon: Wheat, text: "Spices, grains & pulses" },
           { icon: Route, text: "Flexible conversations for global buyers" },
         ].map(({ icon: Icon, text }) => (
           <div
@@ -606,10 +608,18 @@ export function ContactIntro() {
           </div>
         ))}
       </div>
-      <div className="mt-5 flex items-start gap-3 border-l-2 border-gold pl-4 text-[10px] leading-5 text-charcoal/55">
-        <Scale size={15} className="mt-0.5 shrink-0 text-forest" />
-        Contact details will be added here once confirmed by the Khushi Export
-        team.
+      <div className="mt-5 space-y-2 border-l-2 border-gold pl-4 text-[10px] leading-5 text-charcoal/65">
+        <a href={company.phones[0].href} className="flex items-start gap-2 hover:text-forest">
+          <Phone size={13} className="mt-0.5 shrink-0 text-forest" />
+          {company.phones.map((phone) => phone.label).join(" · ")}
+        </a>
+        <a href={company.emailHref} className="flex items-start gap-2 break-all hover:text-forest">
+          <Mail size={13} className="mt-0.5 shrink-0 text-forest" /> {company.email}
+        </a>
+        <p className="flex items-start gap-2">
+          <MapPin size={13} className="mt-0.5 shrink-0 text-forest" />
+          <span>{company.address.join(" ")}</span>
+        </p>
       </div>
     </div>
   );
@@ -621,17 +631,17 @@ export function Footer() {
       <div className="section-wrap grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.5fr_.8fr_.9fr_1fr] lg:gap-12">
         <div>
           <Link href="#home" className="inline-flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-full border border-gold/60 font-display text-xl">
-              K
+            <span className="relative size-11 shrink-0">
+              <Image src="/images/khushi-exim-mark.png" alt="" fill sizes="44px" className="object-contain" />
             </span>
-            <span className="font-display text-xl">Khushi Export</span>
+            <span className="leading-tight"><span className="block font-display text-xl">{company.name}</span><span className="mt-1 block text-[8px] font-bold uppercase tracking-[.16em] text-gold">{company.tagline}</span></span>
           </Link>
           <p className="mt-4 max-w-xs text-xs leading-6 text-ivory/60">
-            An emerging Indian spice export brand connecting authentic Indian
-            spices with businesses around the world.
+            An Indian export business connecting buyers with spices, grains and
+            pulses from India.
           </p>
           <p className="mt-5 text-[9px] font-bold uppercase tracking-[.18em] text-gold">
-            Indian spices. Global partnerships.
+            Spices, grains &amp; pulses.
           </p>
         </div>
         <div>
@@ -659,7 +669,7 @@ export function Footer() {
         </div>
         <div>
           <h3 className="text-[9px] font-bold uppercase tracking-label text-gold">
-            Our products
+            Product range
           </h3>
           <ul className="mt-4 space-y-3">
             {products.slice(0, 5).map((p) => (
@@ -678,9 +688,20 @@ export function Footer() {
           <h3 className="text-[9px] font-bold uppercase tracking-label text-gold">
             Get in touch
           </h3>
-          <p className="mt-4 text-xs leading-6 text-ivory/65">
-            Contact information will be added here when confirmed.
-          </p>
+          <div className="mt-4 space-y-3 text-xs leading-5 text-ivory/70">
+            {company.phones.map((phone) => (
+              <a key={phone.label} href={phone.href} className="flex items-center gap-2 transition hover:text-ivory">
+                <Phone size={13} className="shrink-0 text-gold" /> {phone.label}
+              </a>
+            ))}
+            <a href={company.emailHref} className="flex items-start gap-2 break-all transition hover:text-ivory">
+              <Mail size={13} className="mt-0.5 shrink-0 text-gold" /> {company.email}
+            </a>
+            <p className="flex items-start gap-2">
+              <MapPin size={13} className="mt-0.5 shrink-0 text-gold" />
+              <span>{company.address.map((line) => <span key={line} className="block">{line}</span>)}</span>
+            </p>
+          </div>
           <Link
             href="#inquiry"
             className="mt-4 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.13em] text-ivory"
@@ -692,7 +713,7 @@ export function Footer() {
       <div className="border-t border-ivory/15">
         <div className="section-wrap flex flex-col justify-between gap-3 py-5 text-[9px] text-ivory/45 sm:flex-row">
           <span>
-            © {new Date().getFullYear()} Khushi Export. All rights reserved.
+            © {new Date().getFullYear()} {company.name}. All rights reserved.
           </span>
           <Link
             href="#home"

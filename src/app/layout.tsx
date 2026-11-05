@@ -6,8 +6,8 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Khushi Export — Indian Spices. Global Partnerships.",
-  description: "Explore authentic Indian spices and connect with Khushi Export for thoughtful sourcing and global trade partnerships.",
+  title: "Khushi Exim — Spices, Grains & Pulses",
+  description: "Khushi Exim, based in Unjha, Gujarat. Explore spices, grains and pulses, and get in touch about export enquiries.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
