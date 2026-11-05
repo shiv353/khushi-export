@@ -628,8 +628,8 @@ export function ContactIntro() {
 export function Footer() {
   return (
     <footer id="contact" className="bg-forest-deep text-ivory">
-      <div className="section-wrap grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.5fr_.8fr_.9fr_1fr] lg:gap-12">
-        <div>
+      <div className="section-wrap grid grid-cols-2 gap-10 py-14 lg:grid-cols-[1.5fr_.8fr_.9fr_1fr] lg:gap-12">
+        <div className="col-span-2 lg:col-span-1">
           <Link href="#home" className="inline-flex items-center gap-3">
             <span className="relative size-11 shrink-0">
               <Image src="/images/khushi-exim-mark.png" alt="" fill sizes="44px" className="object-contain" />
@@ -684,7 +684,7 @@ export function Footer() {
             ))}
           </ul>
         </div>
-        <div>
+        <div className="col-span-2 lg:col-span-1">
           <h3 className="text-[9px] font-bold uppercase tracking-label text-gold">
             Get in touch
           </h3>
