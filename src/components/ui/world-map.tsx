@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import DottedMap from "dotted-map";
 import Image from "next/image";
 import { useState } from "react";
+import { useHydratedReducedMotion } from "@/lib/useHydratedReducedMotion";
 
 interface MapProps {
   dots?: Array<{
@@ -14,26 +13,50 @@ interface MapProps {
   backgroundColor?: string;
 }
 
+const mapBounds = {
+  latitude: { min: -56, max: 71 },
+  longitude: { min: -168, max: 168 },
+};
+
+const wgs84Radius = 6_378_137;
+const wgs84Eccentricity = Math.sqrt(6.6943799901413165e-3);
+const minMercatorY = mercatorY(mapBounds.latitude.min);
+const maxMercatorY = mercatorY(mapBounds.latitude.max);
+
+function mercatorY(latitude: number) {
+  const radians = (latitude * Math.PI) / 180;
+  const sinLatitude = Math.sin(radians);
+
+  return (
+    wgs84Radius *
+    Math.log(
+      Math.tan(Math.PI / 4 + radians / 2) *
+        ((1 - wgs84Eccentricity * sinLatitude) /
+          (1 + wgs84Eccentricity * sinLatitude)) **
+          (wgs84Eccentricity / 2),
+    )
+  );
+}
+
 export default function WorldMap({
   dots = [],
   lineColor = "#C7352B",
   backgroundColor = "#F8F5ED",
 }: MapProps) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useHydratedReducedMotion();
   const [hoveredMarker, setHoveredMarker] = useState<string | null>(null);
   const [selectedMarker, setSelectedMarker] = useState<string | null>(null);
-  const map = new DottedMap({ height: 100, grid: "diagonal" });
-
-  const svgMap = map.getSVG({
-    radius: 0.22,
-    color: "#173D2B",
-    shape: "circle",
-    backgroundColor,
-  });
 
   const projectPoint = (lat: number, lng: number) => {
-    const x = (lng + 180) * (800 / 360);
-    const y = (90 - lat) * (400 / 180);
+    const x =
+      ((lng - mapBounds.longitude.min) /
+        (mapBounds.longitude.max - mapBounds.longitude.min)) *
+      800;
+    const y =
+      ((maxMercatorY - mercatorY(lat)) /
+        (maxMercatorY - minMercatorY)) *
+      400;
+
     return { x, y };
   };
 
@@ -158,7 +181,7 @@ export default function WorldMap({
   return (
     <div className="relative aspect-[1.45/1] w-full overflow-hidden font-sans sm:aspect-[1.8/1] lg:aspect-[2/1]">
       <Image
-        src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
+        src="/images/world-dots.svg"
         className="pointer-events-none h-full w-full select-none [mask-image:linear-gradient(to_bottom,transparent,black_8%,black_92%,transparent)]"
         alt=""
         aria-hidden="true"
@@ -178,15 +201,11 @@ export default function WorldMap({
           const endPoint = projectPoint(dot.end.lat, dot.end.lng);
           return (
             <g key={`path-group-${i}`}>
-              <motion.path
+              <path
                 d={createCurvedPath(startPoint, endPoint)}
                 fill="none"
                 stroke="url(#path-gradient)"
                 strokeWidth="1"
-                initial={{ pathLength: reduceMotion ? 1 : 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: reduceMotion ? 0 : 1.2, delay: reduceMotion ? 0 : i * 0.18, ease: "easeOut" }}
-                key={`connection-${i}`}
               />
             </g>
           );

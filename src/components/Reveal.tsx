@@ -1,12 +1,13 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import type { ComponentProps } from "react";
+import { useHydratedReducedMotion } from "@/lib/useHydratedReducedMotion";
 
 type RevealProps = ComponentProps<typeof motion.div>;
 
 export function Reveal({ children, ...props }: RevealProps) {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useHydratedReducedMotion();
   return (
     <motion.div
       initial={reducedMotion ? false : { opacity: 0, y: 16 }}
