@@ -25,6 +25,8 @@ import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
 import { company } from "@/data/company";
+import WorldMap from "@/components/ui/world-map";
+import { exportDestinations, exportOrigin } from "@/data/export-destinations";
 
 const advantages = [
   {
@@ -435,145 +437,46 @@ export function CertificationSection() {
   );
 }
 
-const regions = [
-  "Europe",
-  "North America",
-  "Middle East",
-  "Asia-Pacific",
-  "Africa",
-];
-
 export function MarketAreaSection() {
+  const dots = exportDestinations.map((destination) => ({
+    start: {
+      lat: exportOrigin.lat,
+      lng: exportOrigin.lng,
+      label: exportOrigin.country,
+      detail: exportOrigin.city,
+    },
+    end: {
+      lat: destination.lat,
+      lng: destination.lng,
+      label: destination.country,
+      detail: destination.city,
+    },
+  }));
+
   return (
     <section id="markets" className="bg-ivory py-20 md:py-28">
       <div className="section-wrap">
-        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
-          <div>
-            <p className="eyebrow">From India, with a global outlook</p>
-            <h2 className="section-title mt-3">
-              Connecting Indian spices with global markets.
-            </h2>
-          </div>
-          <p className="max-w-xl text-sm leading-7 text-charcoal/65">
-            India is our sourcing origin. Europe, North America, the Middle
-            East, Asia-Pacific and Africa are intended markets for future
-            business conversations.
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow">
+            From India, with care
+          </p>
+          <h2 className="section-title mt-3">
+            Our Global Reach
+          </h2>
+          <p className="section-copy mx-auto max-w-2xl">
+            From the heart of India to markets around the world, we deliver quality spices with consistency, trust, and care.
           </p>
         </div>
-        <div className="mt-10 overflow-hidden border border-gold/20 bg-forest-deep p-5 text-ivory shadow-soft sm:p-9">
-          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-            <span className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-label text-[#D9C89E]">
-              <Globe2 size={14} /> Intended markets · illustrative
-            </span>
-            <span className="text-[9px] uppercase tracking-[.14em] text-ivory/45">
-              Sourcing origin · India
-            </span>
-          </div>
-          <div className="relative mx-auto aspect-[1.8/1] max-w-5xl">
-            <svg
-              viewBox="0 0 1000 500"
-              role="img"
-              aria-label="Illustrative world map showing India as sourcing origin and intended regions"
-              className="h-full w-full"
-            >
-              <defs>
-                <pattern
-                  id="dots"
-                  width="7"
-                  height="7"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <circle
-                    cx="1.2"
-                    cy="1.2"
-                    r="1"
-                    fill="#B69A61"
-                    opacity=".62"
-                  />
-                </pattern>
-              </defs>
-              <g
-                fill="url(#dots)"
-                stroke="#B69A61"
-                strokeOpacity=".26"
-                strokeWidth="1"
-              >
-                <path d="M92 118 127 82 176 76 196 91 225 89 249 110 242 132 260 145 244 163 216 161 207 181 183 181 169 198 143 192 128 176 102 169 87 147Z" />
-                <path d="m249 205 29 13 19 33-7 40 16 33-13 45-16 42-18 28-14-27 1-38-16-37 4-40-14-30 9-38Z" />
-                <path d="m424 111 31-27 56 2 25 15 47-4 24 19 39-8 44 17 49-1 28 23-21 19-44-8-21 18-38-5-28 19-31-6-22 20-28-8-13-22-38-5-23-21-33 4-22-19-34-2-20-21Z" />
-                <path d="m471 210 38-9 40 12 25 28 8 42-18 35-18 38-25 39-18-12-10-38-24-22-13-41-20-26 8-28Z" />
-                <path d="m649 290 33-21 55 4 36 18 25 32-11 30-31 13-33-10-20 18-31-17-13-28-28-10Z" />
-                <path d="m770 392 47-17 54 5 40 19-17 20-64 6-49-11Z" />
-                <path d="m826 183 36-13 40 14 13 28-30 20-40-9-23-18Z" />
-                <path d="m544 181 19 1 12 18-15 11-18-10Z" />
-              </g>
-              <g
-                fill="none"
-                stroke="#D9C89E"
-                strokeWidth="1.4"
-                strokeDasharray="5 7"
-                opacity=".72"
-              >
-                <path d="M562 226Q405 121 184 133" />
-                <path d="M562 226Q411 185 293 282" />
-                <path d="M562 226Q626 141 729 172" />
-                <path d="M562 226Q687 237 727 313" />
-                <path d="M562 226Q531 300 527 347" />
-              </g>
-              <g fill="#D9C89E">
-                <circle cx="562" cy="226" r="5" />
-                <circle cx="184" cy="133" r="4" />
-                <circle cx="293" cy="282" r="4" />
-                <circle cx="729" cy="172" r="4" />
-                <circle cx="727" cy="313" r="4" />
-                <circle cx="527" cy="347" r="4" />
-              </g>
-              <g
-                fill="#F8F5ED"
-                fontFamily="Arial,sans-serif"
-                fontSize="14"
-                letterSpacing="1"
-              >
-                <text x="577" y="220">
-                  INDIA
-                </text>
-                <text x="121" y="121">
-                  N. AMERICA
-                </text>
-                <text x="241" y="306">
-                  S. AMERICA
-                </text>
-                <text x="691" y="151">
-                  EUROPE
-                </text>
-                <text x="687" y="342">
-                  ASIA-PACIFIC
-                </text>
-                <text x="493" y="375">
-                  AFRICA
-                </text>
-                <text x="546" y="202" fontSize="10" fill="#D9C89E">
-                  ORIGIN
-                </text>
-              </g>
-            </svg>
-          </div>
-          <div className="flex flex-wrap justify-center gap-2 border-t border-ivory/15 pt-5">
-            {regions.map((region) => (
-              <span
-                key={region}
-                className="inline-flex items-center gap-2 border border-gold/25 px-3 py-2 text-[9px] uppercase tracking-[.1em] text-ivory/70"
-              >
-                <span className="size-1.5 rounded-full bg-gold" />
-                {region}
-              </span>
-            ))}
-          </div>
-          <p className="mt-4 text-center text-[9px] leading-5 text-ivory/45">
-            Illustrative target markets only. The map does not represent current
-            export destinations, customers or offices.
-          </p>
+        <div className="mt-9 border-y border-charcoal/10 py-5 sm:mt-12 sm:py-8">
+          <WorldMap dots={dots} lineColor="#B66B45" backgroundColor="#F8F5ED" />
         </div>
+        {/* <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[10px] font-semibold text-charcoal/65">
+          <span className="inline-flex items-center gap-2">
+            <span className="size-2 rounded-full bg-forest" />
+            Origin · India
+          </span>
+          <span>Hover, focus or tap a map marker to explore locations.</span>
+        </div> */}
       </div>
     </section>
   );
