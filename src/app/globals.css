@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { background: #F8F5ED; color: #252820; font-family: var(--font-jakarta), Arial, sans-serif; }
+::selection { background: #B69A61; color: #0D281D; }
+.eyebrow { @apply text-[10px] font-bold uppercase tracking-label text-terracotta; }
+.section-title { @apply font-display text-3xl leading-tight tracking-tight text-forest md:text-5xl; }
+.section-copy { @apply mt-4 max-w-2xl text-sm leading-7 text-charcoal/70 md:text-base; }
+.section-wrap { @apply mx-auto max-w-7xl px-5 md:px-10; }
+.reveal-up { animation: reveal-up .75s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes reveal-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
