@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const fieldClass =
-  "w-full border border-charcoal/15 bg-[#FBF9F3] px-3.5 py-3 text-xs text-charcoal outline-none transition placeholder:text-charcoal/35 focus:border-forest focus:ring-2 focus:ring-gold/20";
+  "w-full border border-charcoal/15 bg-sage px-3.5 py-3 text-xs text-charcoal outline-none transition placeholder:text-charcoal/35 focus:border-forest focus:ring-2 focus:ring-gold/20";
 
 export function InquiryForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -20,7 +20,7 @@ export function InquiryForm() {
     return (
       <div
         role="status"
-        className="flex min-h-[440px] flex-col items-center justify-center border border-forest/15 bg-[#FBF9F3] px-8 py-12 text-center"
+        className="flex min-h-[440px] flex-col items-center justify-center border border-forest/15 bg-sage px-8 py-12 text-center"
       >
         <span className="grid size-14 place-items-center rounded-full bg-forest/10 text-forest">
           <CheckCircle2 size={26} />
@@ -46,7 +46,7 @@ export function InquiryForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 border border-charcoal/10 bg-[#FBF9F3] p-5 shadow-soft sm:p-7"
+      className="space-y-4 border border-charcoal/10 bg-sage p-5 shadow-soft sm:p-7"
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block">

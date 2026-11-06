@@ -9,7 +9,7 @@ const buttonVariants = cva("inline-flex items-center justify-center gap-2 whites
       primary: "bg-forest px-6 py-4 text-ivory hover:bg-forest-deep",
       terracotta: "bg-terracotta px-6 py-4 text-white hover:bg-[#985233]",
       outline: "border border-gold/60 px-6 py-4 text-forest hover:bg-gold/10",
-      light: "bg-ivory px-6 py-4 text-forest hover:bg-white",
+      light: "bg-ivory px-6 py-4 text-forest hover:bg-sage",
       link: "px-0 py-1 text-forest underline-offset-4 hover:underline",
     },
     size: { default: "", sm: "px-4 py-3 text-[10px]", icon: "size-10 p-0" },

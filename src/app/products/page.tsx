@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, MoveRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
+import { Reveal } from "@/components/Reveal";
 import { Footer } from "@/components/sections";
 import { catalogProducts } from "@/data/products";
 
@@ -11,35 +12,40 @@ export default function ProductsPage() {
       <Navbar />
       <main>
         <section className="bg-ivory py-14 md:py-20">
-          <div className="section-wrap">
+          <Reveal className="section-wrap">
             <p className="eyebrow">Our product range</p>
             <h1 className="section-title mt-3">Products from India</h1>
             <p className="section-copy max-w-2xl">
               Explore our range of spices, grains and pulses. Contact us to
               discuss product specifications, grades and availability.
             </p>
-          </div>
+          </Reveal>
         </section>
         <section className="bg-ivory py-14 md:py-20">
-          <div className="section-wrap">
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {catalogProducts.map((product) => (
-                <article
-                  key={product.name}
-                  className="group overflow-hidden border border-charcoal/10 bg-[#FBF9F3] transition duration-300 hover:-translate-y-1 hover:shadow-soft"
-                >
+          <div
+            className="section-wrap grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+            data-reveal-sequence="row"
+            data-reveal-columns="4"
+          >
+            {catalogProducts.map((product) => (
+              <Reveal
+                key={product.name}
+                className="h-full"
+                direction="left"
+              >
+                <article className="group h-full overflow-hidden border border-charcoal/10 bg-[#FBF9F3] transition duration-300 hover:-translate-y-1 hover:shadow-soft">
                   <Link
                     href="/#inquiry"
                     aria-label={`Ask about ${product.name}`}
-                    className="block"
+                    className="block h-full"
                   >
                     <div className="relative aspect-[1.42/1] overflow-hidden bg-cream">
                       <Image
                         src={product.image}
                         alt={product.alt}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition duration-700 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover transition duration-500 group-hover:scale-105"
                         placeholder="blur"
                         blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQwIiBoZWlnaHQ9IjQ1MCIgdmlld0JveD0iMCAwIDY0MCA0NTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiNmMGViZGQiLz48L3N2Zz4="
                       />
@@ -67,8 +73,8 @@ export default function ProductsPage() {
                     </div>
                   </Link>
                 </article>
-              ))}
-            </div>
+              </Reveal>
+            ))}
           </div>
         </section>
       </main>

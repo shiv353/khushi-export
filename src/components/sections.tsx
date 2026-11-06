@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  BadgeCheck,
   Boxes,
   BriefcaseBusiness,
   ChevronRight,
@@ -158,7 +157,7 @@ export function AboutSection() {
   return (
     <section id="about" className="bg-ivory py-20 md:py-28">
       <div className="section-wrap grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
-        <div className="relative mx-auto w-full max-w-[510px] reveal-up">
+        <Reveal className="relative mx-auto w-full max-w-[510px]">
           <div className="relative overflow-hidden rounded-xl border border-gold/40 bg-cream p-2 shadow-soft">
             <div className="relative aspect-[4/4.7] overflow-hidden rounded-lg">
             <Image
@@ -178,7 +177,7 @@ export function AboutSection() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
         <Reveal className="pt-3 lg:pl-3">
           <p className="eyebrow">A new chapter in a storied tradition</p>
           <h2 className="section-title mt-4 max-w-2xl">
@@ -229,15 +228,15 @@ export function WhyChooseUs() {
   return (
     <section className="border-y border-charcoal/5 bg-cream py-20 md:py-24">
       <div className="section-wrap">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">A considered way to work together</p>
           <h2 className="section-title mt-3">Why choose Khushi Exim?</h2>
           <p className="section-copy mx-auto">
             Built around the qualities that matter in a dependable spice
             sourcing relationship.
           </p>
-        </div>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        </Reveal>
+        <Reveal className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {advantages.map(({ icon: Icon, title, copy }, i) => (
             <article
               key={title}
@@ -246,14 +245,14 @@ export function WhyChooseUs() {
               <span className="grid size-11 place-items-center rounded-lg bg-cream text-forest transition-colors duration-200 group-hover:bg-forest group-hover:text-ivory group-focus-within:bg-forest group-focus-within:text-ivory">
                 <Icon size={20} strokeWidth={1.5} />
               </span>
-              <p className="mt-6 text-[9px] font-bold uppercase tracking-label text-terracotta">
+              {/* <p className="mt-6 text-[9px] font-bold uppercase tracking-label text-terracotta">
                 0{i + 1} / Partnership
-              </p>
+              </p> */}
               <h3 className="mt-2 font-display text-xl text-forest">{title}</h3>
               <p className="mt-3 text-xs leading-6 text-charcoal/65">{copy}</p>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -263,7 +262,7 @@ export function ProductSection() {
   return (
     <section id="products" className="bg-ivory py-20 md:py-28">
       <div className="section-wrap">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <p className="eyebrow">
               From everyday essentials to fragrant specialties
@@ -279,7 +278,7 @@ export function ProductSection() {
               Ask About Our Range <ArrowUpRight size={15} />
             </Link>
           </Button>
-        </div>
+        </Reveal>
         {/* <div className="mt-9 flex flex-wrap gap-2">
           {[
             "Whole spices",
@@ -296,52 +295,56 @@ export function ProductSection() {
             </span>
           ))}
         </div> */}
-        <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          data-reveal-sequence="row"
+          data-reveal-columns="3"
+        >
           {products.map((product) => (
-            <article
+            <Reveal
               key={product.name}
-              className="group overflow-hidden border border-charcoal/10 bg-[#FBF9F3] transition duration-300 hover:-translate-y-1 hover:shadow-soft"
+              className="h-full"
+              direction="left"
             >
-              <Link
-                href="/products"
-                aria-label={`Explore ${product.name}`}
-                className="block"
-              >
-                <div className="relative aspect-[1.42/1] overflow-hidden bg-cream">
-                  <Image
-                    src={product.image}
-                    alt={product.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition duration-700 group-hover:scale-105"
-                  />
-                  <span className="absolute left-3 top-3 bg-ivory/90 px-3 py-1.5 text-[8px] font-bold uppercase tracking-[.13em] text-forest">
-                    {product.category}
-                  </span>
-                  <span className="absolute bottom-3 right-3 grid size-9 place-items-center rounded-full bg-ivory text-forest transition group-hover:bg-forest group-hover:text-ivory">
-                    <ArrowUpRight size={16} />
-                  </span>
-                </div>
-                <div className="p-5">
-                  {/* <p className="text-[9px] font-bold uppercase tracking-label text-terracotta">
-                    Product {String(i + 1).padStart(2, "0")}
-                  </p> */}
-                  <h3 className="mt-2 font-display text-2xl text-forest">
-                    {product.name}
-                  </h3>
-                  <p className="mt-2 min-h-12 text-xs leading-6 text-charcoal/65">
-                    {product.description}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-[9px] font-bold uppercase tracking-[.13em] text-forest">
-                    Explore products{" "}
-                    <MoveRight
-                      size={14}
-                      className="transition group-hover:translate-x-1"
+              <article className="group h-full overflow-hidden border border-charcoal/10 bg-[#FBF9F3] transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+                <Link
+                  href="/products"
+                  aria-label={`Explore ${product.name}`}
+                  className="block h-full"
+                >
+                  <div className="relative aspect-[1.42/1] overflow-hidden bg-cream">
+                    <Image
+                      src={product.image}
+                      alt={product.alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition duration-500 group-hover:scale-105"
                     />
-                  </span>
-                </div>
-              </Link>
-            </article>
+                    <span className="absolute left-3 top-3 bg-ivory/90 px-3 py-1.5 text-[8px] font-bold uppercase tracking-[.13em] text-forest">
+                      {product.category}
+                    </span>
+                    <span className="absolute bottom-3 right-3 grid size-9 place-items-center rounded-full bg-ivory text-forest transition group-hover:bg-forest group-hover:text-ivory">
+                      <ArrowUpRight size={16} />
+                    </span>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="mt-2 font-display text-2xl text-forest">
+                      {product.name}
+                    </h3>
+                    <p className="mt-2 min-h-12 text-xs leading-6 text-charcoal/65">
+                      {product.description}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-[9px] font-bold uppercase tracking-[.13em] text-forest">
+                      Explore products{" "}
+                      <MoveRight
+                        size={14}
+                        className="transition group-hover:translate-x-1"
+                      />
+                    </span>
+                  </div>
+                </Link>
+              </article>
+            </Reveal>
           ))}
         </div>
         {/* <p className="mt-6 text-[10px] leading-5 text-charcoal/50">
@@ -358,7 +361,7 @@ export function GrowthSection() {
     <section className="relative overflow-hidden bg-forest-deep py-20 text-ivory md:py-24">
       <div className="absolute -right-20 -top-28 size-96 rounded-full border border-gold/10" />
       <div className="absolute -right-10 -top-16 size-72 rounded-full border border-gold/10" />
-      <div className="section-wrap relative">
+      <Reveal className="section-wrap relative">
         <div className="max-w-2xl">
           <p className="text-[10px] font-bold uppercase tracking-label text-[#D2BB83]">
             Our aim
@@ -392,7 +395,7 @@ export function GrowthSection() {
             </article>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -401,7 +404,7 @@ export function CertificationSection() {
   return (
     <section id="certifications" className="bg-cream py-20 md:py-24">
       <div className="section-wrap">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Documents & business credentials</p>
           <h2 className="section-title mt-3">
             Certifications & business credentials
@@ -410,28 +413,28 @@ export function CertificationSection() {
             We believe in sharing clear, accurate information as our business
             credentials are prepared.
           </p>
-        </div>
-        <div className="mx-auto mt-10 flex max-w-4xl flex-col items-center gap-5 border border-charcoal/10 bg-ivory px-6 py-9 text-center sm:flex-row sm:px-10 sm:text-left">
-          <span className="grid size-14 shrink-0 place-items-center rounded-full border border-gold/60 text-forest">
-            <BadgeCheck size={23} strokeWidth={1.4} />
-          </span>
-          <div>
-            <h3 className="font-display text-xl text-forest">
-              Company documents will appear here
-            </h3>
-            <p className="mt-2 max-w-2xl text-xs leading-6 text-charcoal/65">
-              No certificates or registration documents have been provided for
-              display yet. This section is ready to be updated when verified
-              documents are available.
-            </p>
-          </div>
-          <span className="sm:ml-auto sm:whitespace-nowrap">
-            <span className="inline-flex items-center gap-2 border border-gold/50 px-3 py-2 text-[8px] font-bold uppercase tracking-[.14em] text-charcoal/60">
-              <span className="size-1.5 rounded-full bg-terracotta" /> Documents
-              pending
-            </span>
-          </span>
-        </div>
+        </Reveal>
+        <Reveal className="mx-auto mt-10 grid max-w-5xl grid-cols-3 items-start gap-x-5 gap-y-8 sm:grid-cols-6 sm:gap-x-8">
+          {Array.from({ length: 6 }, (_, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center gap-2 text-center"
+            >
+              <span className="relative h-16 w-full max-w-[140px]">
+                <Image
+                  src="/images/fssi-logo.png"
+                  alt="FSSAI logo used as a placeholder"
+                  fill
+                  sizes="(max-width: 640px) 25vw, 140px"
+                  className="object-contain"
+                />
+              </span>
+              <span className="text-[8px] font-bold uppercase tracking-[.12em] text-charcoal/55">
+                Placeholder
+              </span>
+            </div>
+          ))}
+        </Reveal>
       </div>
     </section>
   );
@@ -456,7 +459,7 @@ export function MarketAreaSection() {
   return (
     <section id="markets" className="bg-ivory py-20 md:py-28">
       <div className="section-wrap">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">
             From India, with care
           </p>
@@ -466,10 +469,10 @@ export function MarketAreaSection() {
           <p className="section-copy mx-auto max-w-2xl">
             From the heart of India to markets around the world, we deliver quality spices with consistency, trust, and care.
           </p>
-        </div>
-        <div className="mt-9 border-y border-charcoal/10 py-5 sm:mt-12 sm:py-8">
+        </Reveal>
+        <Reveal className="mt-9 border-y border-charcoal/10 py-5 sm:mt-12 sm:py-8">
           <WorldMap dots={dots} lineColor="#B66B45" backgroundColor="#F8F5ED" />
-        </div>
+        </Reveal>
         {/* <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[10px] font-semibold text-charcoal/65">
           <span className="inline-flex items-center gap-2">
             <span className="size-2 rounded-full bg-forest" />

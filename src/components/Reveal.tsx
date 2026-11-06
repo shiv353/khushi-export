@@ -1,22 +1,47 @@
 "use client";
 
-import { motion } from "motion/react";
-import type { ComponentProps } from "react";
-import { useHydratedReducedMotion } from "@/lib/useHydratedReducedMotion";
+import { useEffect, useRef, type HTMLAttributes } from "react";
 
-type RevealProps = ComponentProps<typeof motion.div>;
+type RevealProps = HTMLAttributes<HTMLDivElement> & {
+  direction?: "up" | "left";
+};
 
-export function Reveal({ children, ...props }: RevealProps) {
-  const reducedMotion = useHydratedReducedMotion();
+export function Reveal({
+  children,
+  direction = "up",
+  ...props
+}: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    ) {
+      return;
+    }
+
+    element.dataset.revealHidden = "true";
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          element.dataset.revealHidden = "false";
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -32px 0px" },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      initial={reducedMotion ? false : { opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      {...props}
-    >
+    <div ref={ref} data-reveal-direction={direction} {...props}>
       {children}
-    </motion.div>
+    </div>
   );
 }

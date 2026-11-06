@@ -12,6 +12,7 @@ const config: Config = {
         "forest-deep": "#0D281D",
         ivory: "#F8F5ED",
         cream: "#F0EBDD",
+        sage: "#F0F1E8",
         terracotta: "#B66B45",
         charcoal: "#252820",
         gold: "#B69A61",
