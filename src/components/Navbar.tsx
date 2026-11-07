@@ -69,9 +69,9 @@ export function Navbar() {
           {navigation.map((item) =>
               <Link
                 key={item.label}
-                href={item.label === "Products" ? "/products" : `/${item.href}`}
-                aria-current={(pathname === "/products" && item.label === "Products") || (pathname === "/" && activeSection === item.href.slice(1)) ? "location" : undefined}
-                className={`nav-underline text-[11px] font-semibold transition-colors hover:text-forest ${(pathname === "/products" && item.label === "Products") || (pathname === "/" && activeSection === item.href.slice(1)) ? "is-active text-forest" : "text-charcoal/75"}`}
+                href={item.href.startsWith("/") ? item.href : `/${item.href}`}
+                aria-current={(pathname === "/products" && item.label === "Products") || (pathname === "/about" && item.label === "About Us") || (pathname === "/certificate" && item.label === "Certification") || (pathname === "/" && activeSection === item.href.slice(1)) ? "location" : undefined}
+                className={`nav-underline text-[11px] font-semibold transition-colors hover:text-forest ${(pathname === "/products" && item.label === "Products") || (pathname === "/about" && item.label === "About Us") || (pathname === "/certificate" && item.label === "Certification") || (pathname === "/" && activeSection === item.href.slice(1)) ? "is-active text-forest" : "text-charcoal/75"}`}
               >
                 {item.label}
               </Link>
@@ -79,7 +79,7 @@ export function Navbar() {
         </nav>
         <div className="hidden lg:block">
           <Button asChild variant="primary" size="sm">
-            <Link href="#inquiry">
+            <Link href={pathname === "/" ? "#inquiry" : "/#inquiry"}>
               Get a Quote <ArrowUpRight size={14} />
             </Link>
           </Button>
@@ -102,7 +102,7 @@ export function Navbar() {
           {navigation.map((item) => (
             <Link
               key={item.label}
-              href={item.label === "Products" ? "/products" : `/${item.href}`}
+              href={item.href.startsWith("/") ? item.href : `/${item.href}`}
               onClick={() => setOpen(false)}
               className="block border-b border-charcoal/5 py-3 text-sm font-medium text-charcoal/80 last:border-0"
             >
@@ -110,7 +110,7 @@ export function Navbar() {
             </Link>
           ))}
           <Button asChild variant="primary" className="mt-3 w-full">
-            <Link href="#inquiry" onClick={() => setOpen(false)}>
+            <Link href={pathname === "/" ? "#inquiry" : "/#inquiry"} onClick={() => setOpen(false)}>
               Get a Quote <ArrowUpRight size={14} />
             </Link>
           </Button>

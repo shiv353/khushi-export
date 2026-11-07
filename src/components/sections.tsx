@@ -153,9 +153,37 @@ export function HeroSection() {
   );
 }
 
-export function AboutSection() {
+export function AboutSection({ standalone = false }: { standalone?: boolean }) {
+  if (standalone) {
+    return (
+      <section className="bg-ivory py-10 md:py-16">
+        {/* <div className="section-wrap grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+          <Reveal className="relative mx-auto w-full max-w-[510px]">
+            <div className="relative overflow-hidden rounded-xl border border-gold/40 bg-cream p-2 shadow-soft">
+              <div className="relative aspect-[4/4.7] overflow-hidden rounded-lg">
+                <Image src="/images/about.jpg" alt="Hands sorting spices at a woven work surface" fill sizes="(max-width: 1024px) 90vw, 44vw" className="object-cover" />
+                <div className="absolute inset-x-4 bottom-4 border border-gold/40 bg-forest-deep/95 px-4 py-3 text-ivory shadow-soft backdrop-blur-md sm:inset-x-5 sm:bottom-5">
+                  <span className="block font-display text-lg italic">From our home in Gujarat</span>
+                  <span className="mt-1 block text-[8px] uppercase tracking-[.18em] text-ivory/65">A local outlook with a global horizon</span>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal className="pt-3 lg:pl-3">
+            <p className="eyebrow">A story shaped by place</p>
+            <h2 className="section-title mt-4 max-w-2xl">From the heart of India’s spice country to your table.</h2>
+            <p className="section-copy">Our story begins in Unjha, Gujarat—a place closely connected to India’s agricultural trade. Here, food is more than an ingredient: it carries the character of a region, the work of its people and traditions shared across generations.</p>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-charcoal/65">Khushi Exim brings that sense of place into every buyer conversation. We listen first, learn what matters in your market, and work together to explore the right products and practical next steps.</p>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {["Grounded in Gujarat", "Curious about new markets", "Built on conversation"].map((item) => <span key={item} className="border border-gold/50 bg-cream px-3 py-2 text-[9px] font-bold uppercase tracking-[.12em] text-forest">{item}</span>)}
+            </div>
+          </Reveal>
+        </div> */}
+      </section>
+    );
+  }
   return (
-    <section id="about" className="bg-ivory py-20 md:py-28">
+    <section id={standalone ? undefined : "about"} className="bg-ivory py-20 md:py-28">
       <div className="section-wrap grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
         <Reveal className="relative mx-auto w-full max-w-[510px]">
           <div className="relative overflow-hidden rounded-xl border border-gold/40 bg-cream p-2 shadow-soft">
@@ -180,9 +208,15 @@ export function AboutSection() {
         </Reveal>
         <Reveal className="pt-3 lg:pl-3">
           <p className="eyebrow">A new chapter in a storied tradition</p>
-          <h2 className="section-title mt-4 max-w-2xl">
+          {standalone ? (
+            <h2 className="section-title mt-4 max-w-2xl">
+              Khushi Exim — bringing India’s finest spices, grains &amp; pulses to the world.
+            </h2>
+          ) : (
+            <h2 className="section-title mt-4 max-w-2xl">
             Khushi Exim — bringing India’s finest spices, grains & pulses to the world.
-          </h2>
+            </h2>
+          )}
           <p className="section-copy">
             Khushi Exim is an Indian export business inspired by the country’s
             rich agricultural and culinary heritage. We connect international
@@ -214,7 +248,7 @@ export function AboutSection() {
             ))}
           </div>
           <Button asChild variant="link" className="mt-6">
-            <Link href="#inquiry">
+            <Link href="/about">
               Read More <ArrowRight size={15} />
             </Link>
           </Button>
@@ -557,9 +591,9 @@ export function Footer() {
           <ul className="mt-4 space-y-3">
             {[
               ["Home", "/#home"],
-              ["About us", "/#about"],
+              ["About us", "/about"],
               ["Products", "/products"],
-              ["Certifications", "/#certifications"],
+              ["Certifications", "/certificate"],
               ["Contact", "/#inquiry"],
             ].map(([label, href]) => (
               <li key={label}>
