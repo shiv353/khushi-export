@@ -26,8 +26,8 @@ export default function CertificatePage() {
       <main>
         <section className="bg-forest-deep py-14 text-center text-ivory md:py-20">
           <div className="section-wrap">
-            <p className="eyebrow">Documents &amp; credentials</p>
-            <h1 className="mx-auto mt-3 max-w-4xl font-display text-4xl leading-tight tracking-tight text-ivory md:text-6xl">Compliance, made <span className="italic text-gold">clear.</span></h1>
+            <p className="eyebrow !text-white/80">Documents &amp; credentials</p>
+            <h1 className="mx-auto mt-3 max-w-4xl font-display text-4xl leading-tight tracking-tight text-ivory md:text-6xl">Compliance, made <span className="italic text-white/80">clear.</span></h1>
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-ivory/70 md:text-base">We believe in clear conversations and accurate information for every buyer and market.</p>
           </div>
         </section>
@@ -41,7 +41,7 @@ export default function CertificatePage() {
             <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
               {certificatePlaceholders.map(({ category, title, note, Icon }) => (
                 <Reveal key={title} className="h-full">
-                  <article className="group relative flex h-full min-h-[250px] flex-col overflow-hidden border border-gold/30 bg-[#F5F0E4] p-6 shadow-[0_8px_28px_rgba(13,40,29,0.04)] transition duration-300 hover:-translate-y-1 hover:border-gold/70 hover:bg-ivory hover:shadow-soft before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-gold/60 md:p-7">
+                  <article className="group relative flex h-full min-h-[250px] flex-col overflow-hidden border border-gold/30 bg-white p-6 shadow-[0_8px_28px_rgba(13,40,29,0.04)] transition duration-300 hover:-translate-y-1 hover:border-gold/70 hover:bg-ivory hover:shadow-soft before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-gold/60 md:p-7">
                     <span className="inline-flex w-fit rounded-full border border-gold/35 bg-ivory/80 px-3 py-1.5 text-[8px] font-bold uppercase tracking-[.13em] text-forest/70">{category}</span>
                     <div className="mt-7 grid size-14 place-items-center rounded-full border border-gold/25 bg-ivory/80 text-forest transition duration-300 group-hover:bg-forest group-hover:text-ivory">
                       <Icon size={26} strokeWidth={1.5} />

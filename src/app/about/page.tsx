@@ -10,8 +10,8 @@ export default function AboutPage() {
       <main>
         <section className="bg-forest-deep py-14 text-center text-ivory md:py-20">
           <div className="section-wrap">
-            <p className="eyebrow">About Khushi Exim</p>
-            <h1 className="mx-auto mt-3 max-w-4xl font-display text-4xl leading-tight tracking-tight text-ivory md:text-6xl">Rooted in India. <span className="italic text-gold">Connected to the world.</span></h1>
+            <p className="eyebrow !text-white/80">About Khushi Exim</p>
+            <h1 className="mx-auto mt-3 max-w-4xl font-display text-4xl leading-tight tracking-tight text-ivory md:text-6xl">Rooted in India. <span className="italic text-white/80">Connected to the world.</span></h1>
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-ivory/70 md:text-base">A Gujarat-based export partner bringing care, clarity and a sense of place to every conversation.</p>
           </div>
         </section>

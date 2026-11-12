@@ -95,13 +95,13 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/50 via-transparent to-forest-deep/15" />
       <div className="section-wrap relative z-10 w-full py-24 md:py-32">
         <Reveal className="max-w-3xl">
-          <p className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.22em] text-[#D2BB83]">
+          <p className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.22em] text-white/80">
             <span className="h-px w-9 bg-gold" /> {company.name} · India
           </p>
           <h1 className="max-w-3xl font-display text-5xl leading-[1.06] tracking-tight text-ivory sm:text-6xl md:text-7xl">
             The richness of Indian spices.
             <br />
-            <em className="font-normal text-[#D9C89E]">
+            <em className="font-normal text-white/80">
               Delivered to the world.
             </em>
           </h1>
@@ -138,7 +138,7 @@ export function HeroSection() {
               key={label}
               className="flex items-center gap-2 text-[10px] uppercase tracking-[.12em] text-ivory/70"
             >
-              <span className="font-display text-sm italic text-gold">
+              <span className="font-display text-sm italic text-white/80">
                 0{i + 1}
               </span>
               {label}
@@ -274,7 +274,7 @@ export function WhyChooseUs() {
           {advantages.map(({ icon: Icon, title, copy }, i) => (
             <article
               key={title}
-              className="group min-h-[235px] border border-gold/25 bg-ivory p-6 shadow-[0_12px_32px_-4px_rgba(37,40,32,0.06)] transition-all duration-200 hover:border-gold focus-within:border-gold"
+              className="group min-h-[235px] border border-gold/25 bg-ivory p-6 shadow-[0_12px_32px_-4px_rgba(13,40,29,0.06)] transition-all duration-200 hover:border-gold focus-within:border-gold"
             >
               <span className="grid size-11 place-items-center rounded-lg bg-cream text-forest transition-colors duration-200 group-hover:bg-forest group-hover:text-ivory group-focus-within:bg-forest group-focus-within:text-ivory">
                 <Icon size={20} strokeWidth={1.5} />
@@ -340,7 +340,7 @@ export function ProductSection() {
               className="h-full"
               direction="left"
             >
-              <article className="group h-full overflow-hidden border border-charcoal/10 bg-[#FBF9F3] transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+              <article className="group h-full overflow-hidden border border-charcoal/10 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-soft">
                 <Link
                   href="/products"
                   aria-label={`Explore ${product.name}`}
@@ -393,11 +393,11 @@ export function ProductSection() {
 export function GrowthSection() {
   return (
     <section className="relative overflow-hidden bg-forest-deep py-20 text-ivory md:py-24">
-      <div className="absolute -right-20 -top-28 size-96 rounded-full border border-gold/10" />
-      <div className="absolute -right-10 -top-16 size-72 rounded-full border border-gold/10" />
+      <div className="absolute -right-20 -top-28 size-96 rounded-full border border-cream/10" />
+      <div className="absolute -right-10 -top-16 size-72 rounded-full border border-cream/10" />
       <Reveal className="section-wrap relative">
         <div className="max-w-2xl">
-          <p className="text-[10px] font-bold uppercase tracking-label text-[#D2BB83]">
+          <p className="text-[10px] font-bold uppercase tracking-label text-white/80">
             Our aim
           </p>
           <h2 className="mt-3 font-display text-4xl leading-tight md:text-5xl">
@@ -413,19 +413,19 @@ export function GrowthSection() {
           {priorities.map(({ icon: Icon, number, title, copy }) => (
             <article
               key={number}
-              className="flex min-h-[260px] flex-col justify-between rounded-lg border border-gold/25 bg-forest/40 p-6 transition-colors duration-200 hover:border-gold/60 sm:p-7"
+              className="flex min-h-[260px] flex-col justify-between rounded-lg border border-white/20 bg-forest/40 p-6 transition-colors duration-200 hover:border-white/50 sm:p-7"
             >
               <div className="flex items-center justify-between">
-                <span className="font-display text-3xl font-semibold italic text-gold/55">
+                <span className="font-display text-3xl font-semibold italic text-white/70">
                   {number}
                 </span>
-                <Icon size={18} className="text-gold/80" strokeWidth={1.4} />
+                <Icon size={18} className="text-white/80" strokeWidth={1.4} />
               </div>
               <div className="mt-7">
                 <h3 className="font-display text-xl leading-snug">{title}</h3>
                 <p className="mt-3 text-xs leading-6 text-ivory/65">{copy}</p>
               </div>
-              <span className="mt-6 block h-px w-9 bg-gold/70" />
+              <span className="mt-6 block h-px w-9 bg-white/70" />
             </article>
           ))}
         </div>
@@ -505,7 +505,7 @@ export function MarketAreaSection() {
           </p>
         </Reveal>
         <Reveal className="mt-9 border-y border-charcoal/10 py-5 sm:mt-12 sm:py-8">
-          <WorldMap dots={dots} lineColor="#B66B45" backgroundColor="#F8F5ED" />
+          <WorldMap dots={dots} lineColor="#28633D" backgroundColor="#FFFFFF" />
         </Reveal>
         {/* <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[10px] font-semibold text-charcoal/65">
           <span className="inline-flex items-center gap-2">
@@ -574,18 +574,18 @@ export function Footer() {
             <span className="relative size-11 shrink-0">
               <Image src="/images/khushi-exim-mark.png" alt="" fill sizes="44px" className="object-contain" />
             </span>
-            <span className="leading-tight"><span className="block font-display text-xl">{company.name}</span><span className="mt-1 block text-[8px] font-bold uppercase tracking-[.16em] text-gold">{company.tagline}</span></span>
+            <span className="leading-tight"><span className="block font-display text-xl">{company.name}</span><span className="mt-1 block text-[8px] font-bold uppercase tracking-[.16em] text-white/80">{company.tagline}</span></span>
           </Link>
           <p className="mt-4 max-w-xs text-xs leading-6 text-ivory/60">
             An Indian export business connecting buyers with spices, grains and
             pulses from India.
           </p>
-          <p className="mt-5 text-[9px] font-bold uppercase tracking-[.18em] text-gold">
+          <p className="mt-5 text-[9px] font-bold uppercase tracking-[.18em] text-white/80">
             Spices, grains &amp; pulses.
           </p>
         </div>
         <div>
-          <h3 className="text-[9px] font-bold uppercase tracking-label text-gold">
+          <h3 className="text-[9px] font-bold uppercase tracking-label text-white/80">
             Quick links
           </h3>
           <ul className="mt-4 space-y-3">
@@ -608,7 +608,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-[9px] font-bold uppercase tracking-label text-gold">
+          <h3 className="text-[9px] font-bold uppercase tracking-label text-white/80">
             Product range
           </h3>
           <ul className="mt-4 space-y-3">
@@ -625,20 +625,20 @@ export function Footer() {
           </ul>
         </div>
         <div className="col-span-2 lg:col-span-1">
-          <h3 className="text-[9px] font-bold uppercase tracking-label text-gold">
+          <h3 className="text-[9px] font-bold uppercase tracking-label text-white/80">
             Get in touch
           </h3>
           <div className="mt-4 space-y-3 text-xs leading-5 text-ivory/70">
             {company.phones.map((phone) => (
               <a key={phone.label} href={phone.href} className="flex items-center gap-2 transition hover:text-ivory">
-                <Phone size={13} className="shrink-0 text-gold" /> {phone.label}
+                <Phone size={13} className="shrink-0 text-white/80" /> {phone.label}
               </a>
             ))}
             <a href={company.emailHref} className="flex items-start gap-2 break-all transition hover:text-ivory">
-              <Mail size={13} className="mt-0.5 shrink-0 text-gold" /> {company.email}
+              <Mail size={13} className="mt-0.5 shrink-0 text-white/80" /> {company.email}
             </a>
             <p className="flex items-start gap-2">
-              <MapPin size={13} className="mt-0.5 shrink-0 text-gold" />
+              <MapPin size={13} className="mt-0.5 shrink-0 text-white/80" />
               <span>{company.address.map((line) => <span key={line} className="block">{line}</span>)}</span>
             </p>
           </div>

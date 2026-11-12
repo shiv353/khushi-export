@@ -33,7 +33,7 @@ export default function ProductsPage() {
                 className="h-full"
                 direction="left"
               >
-                <article className="group h-full overflow-hidden border border-charcoal/10 bg-[#FBF9F3] transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+                <article className="group h-full overflow-hidden border border-charcoal/10 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-soft">
                   <Link
                     href="/#inquiry"
                     aria-label={`Ask about ${product.name}`}
@@ -47,7 +47,7 @@ export default function ProductsPage() {
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         className="object-cover transition duration-500 group-hover:scale-105"
                         placeholder="blur"
-                        blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQwIiBoZWlnaHQ9IjQ1MCIgdmlld0JveD0iMCAwIDY0MCA0NTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiNmMGViZGQiLz48L3N2Zz4="
+                        blurDataURL="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 450%22%3E%3Crect width=%22640%22 height=%22450%22 fill=%22%23fff%22/%3E%3C/svg%3E"
                       />
                       <span className="absolute left-3 top-3 bg-ivory/90 px-3 py-1.5 text-[8px] font-bold uppercase tracking-[.13em] text-forest">
                         {product.category}

@@ -7,7 +7,7 @@ const buttonVariants = cva("inline-flex items-center justify-center gap-2 whites
   variants: {
     variant: {
       primary: "bg-forest px-6 py-4 text-ivory hover:bg-forest-deep",
-      terracotta: "bg-terracotta px-6 py-4 text-white hover:bg-[#985233]",
+      terracotta: "bg-terracotta px-6 py-4 text-white hover:bg-forest-deep",
       outline: "border border-gold/60 px-6 py-4 text-forest hover:bg-gold/10",
       light: "bg-ivory px-6 py-4 text-forest hover:bg-sage",
       link: "px-0 py-1 text-forest underline-offset-4 hover:underline",

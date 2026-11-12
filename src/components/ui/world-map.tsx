@@ -40,8 +40,8 @@ function mercatorY(latitude: number) {
 
 export default function WorldMap({
   dots = [],
-  lineColor = "#C7352B",
-  backgroundColor = "#F8F5ED",
+  lineColor = "#28633D",
+  backgroundColor = "#FFFFFF",
 }: MapProps) {
   const reduceMotion = useHydratedReducedMotion();
   const [hoveredMarker, setHoveredMarker] = useState<string | null>(null);
@@ -150,13 +150,13 @@ export default function WorldMap({
               height="44"
               rx="4"
               fill="#0D281D"
-              stroke="#B69A61"
+              stroke="#28633D"
               strokeOpacity=".7"
             />
             <text
               x={tooltipX + 10}
               y={tooltipY + 18}
-              fill="#F8F5ED"
+              fill="#FFFFFF"
               fontSize="11"
               fontWeight="600"
             >
@@ -166,7 +166,7 @@ export default function WorldMap({
               <text
                 x={tooltipX + 10}
                 y={tooltipY + 34}
-                fill="#D9C89E"
+                fill="#B8D3C0"
                 fontSize="9"
               >
                 {marker.detail}

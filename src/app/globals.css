@@ -4,8 +4,8 @@
 
 :root { color-scheme: light; }
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
-body { background: #F8F5ED; color: #252820; font-family: var(--font-jakarta), Arial, sans-serif; }
-::selection { background: #B69A61; color: #0D281D; }
+body { background: #FFFFFF; color: #0D281D; font-family: var(--font-jakarta), Arial, sans-serif; }
+::selection { background: #28633D; color: #FFFFFF; }
 .eyebrow { @apply text-[10px] font-bold uppercase tracking-label text-terracotta; }
 .section-title { @apply font-display text-3xl leading-tight tracking-tight text-forest md:text-5xl; }
 .section-copy { @apply mt-4 max-w-2xl text-sm leading-7 text-charcoal/70 md:text-base; }
