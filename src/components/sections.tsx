@@ -260,30 +260,44 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
 
 export function WhyChooseUs() {
   return (
-    <section className="border-y border-charcoal/5 bg-cream py-20 md:py-24">
-      <div className="section-wrap">
+    <section className="relative isolate overflow-hidden border-y border-white/10 bg-forest-deep py-20 text-white md:py-24">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 240 240"
+        fill="none"
+        className="pointer-events-none absolute -right-20 -top-32 hidden size-72 opacity-15 md:block lg:-right-16 lg:-top-36 lg:size-80"
+      >
+        <path
+          d="m120 8 25 80 82 32-82 32-25 80-25-80-82-32 82-32 25-80Z"
+          stroke="#B8D3C0"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <div className="section-wrap relative z-10">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">A considered way to work together</p>
-          <h2 className="section-title mt-3">Why choose Khushi Exim?</h2>
-          <p className="section-copy mx-auto">
+          <p className="eyebrow !text-white/80">A considered way to work together</p>
+          <h2 className="section-title mt-3 !text-white">Why choose Khushi Exim?</h2>
+          <p className="section-copy mx-auto !text-white/75">
             Built around the qualities that matter in a dependable spice
             sourcing relationship.
           </p>
         </Reveal>
         <Reveal className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {advantages.map(({ icon: Icon, title, copy }, i) => (
+          {advantages.map(({ icon: Icon, title, copy }) => (
             <article
               key={title}
-              className="group min-h-[235px] border border-gold/25 bg-ivory p-6 shadow-[0_12px_32px_-4px_rgba(13,40,29,0.06)] transition-all duration-200 hover:border-gold focus-within:border-gold"
+              className="group flex min-h-[290px] flex-col rounded-lg border border-white/20 bg-forest/40 p-6 text-white transition-colors duration-200 hover:border-white/50 focus-within:border-white/50 sm:p-7"
             >
-              <span className="grid size-11 place-items-center rounded-lg bg-cream text-forest transition-colors duration-200 group-hover:bg-forest group-hover:text-ivory group-focus-within:bg-forest group-focus-within:text-ivory">
+              <span className="grid size-11 place-items-center rounded-lg border border-white/20 bg-white/10 text-white/80 transition-colors duration-200 group-hover:bg-white/20 group-focus-within:bg-white/20">
                 <Icon size={20} strokeWidth={1.5} />
               </span>
               {/* <p className="mt-6 text-[9px] font-bold uppercase tracking-label text-terracotta">
                 0{i + 1} / Partnership
               </p> */}
-              <h3 className="mt-2 font-display text-xl text-forest">{title}</h3>
-              <p className="mt-3 text-xs leading-6 text-charcoal/65">{copy}</p>
+              <h3 className="mt-7 font-display text-xl leading-snug text-white">{title}</h3>
+              <p className="mt-3 text-xs leading-6 text-white/65">{copy}</p>
+              <span className="mt-auto block h-px w-9 bg-white/70" />
             </article>
           ))}
         </Reveal>
@@ -491,20 +505,36 @@ export function MarketAreaSection() {
   }));
 
   return (
-    <section id="markets" className="bg-ivory py-20 md:py-28">
-      <div className="section-wrap">
+    <section id="markets" className="relative isolate overflow-hidden bg-forest-deep py-20 text-white md:py-28">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_65%,rgba(23,61,43,0.9),transparent_58%)]" />
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 520 520"
+        fill="none"
+        className="pointer-events-none absolute -right-36 -top-56 hidden h-[520px] w-[520px] opacity-20 md:block"
+      >
+        <g stroke="#B8D3C0" strokeWidth="1">
+          <path d="M518 0C383 28 267 75 188 146 100 225 54 327 0 520" />
+          <path d="M520 38C392 63 286 106 212 171 129 244 82 345 29 520" />
+          <path d="M520 78C402 99 304 137 235 198 158 266 111 363 59 520" />
+          <path d="M520 120C414 137 324 172 260 228 188 292 142 384 91 520" />
+          <path d="M520 164C427 179 345 209 286 260 219 319 174 407 124 520" />
+        </g>
+      </svg>
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -left-20 size-80 rounded-full bg-forest/50 blur-3xl" />
+      <div className="section-wrap relative z-10">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="eyebrow">
+          <p className="eyebrow !text-white/80">
             From India, with care
           </p>
-          <h2 className="section-title mt-3">
+          <h2 className="section-title mt-3 !text-white">
             Our Global Reach
           </h2>
-          <p className="section-copy mx-auto max-w-2xl">
+          <p className="section-copy mx-auto max-w-2xl !text-white/75">
             From the heart of India to markets around the world, we deliver quality spices with consistency, trust, and care.
           </p>
         </Reveal>
-        <Reveal className="mt-9 border-y border-charcoal/10 py-5 sm:mt-12 sm:py-8">
+        <Reveal className="mt-9 overflow-hidden rounded-xl border border-white/15 bg-white p-2 shadow-[0_24px_70px_-35px_rgba(0,0,0,0.65)] sm:mt-12 sm:p-4">
           <WorldMap dots={dots} lineColor="#28633D" backgroundColor="#FFFFFF" />
         </Reveal>
         {/* <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[10px] font-semibold text-charcoal/65">
@@ -574,18 +604,18 @@ export function Footer() {
             <span className="relative size-11 shrink-0">
               <Image src="/images/khushi-exim-mark.png" alt="" fill sizes="44px" className="object-contain" />
             </span>
-            <span className="leading-tight"><span className="block font-display text-xl">{company.name}</span><span className="mt-1 block text-[8px] font-bold uppercase tracking-[.16em] text-white/80">{company.tagline}</span></span>
+            <span className="leading-tight"><span className="block font-display text-xl">{company.name}</span><span className="mt-1 block text-[10px] font-bold uppercase tracking-[.16em] text-white/80">{company.tagline}</span></span>
           </Link>
-          <p className="mt-4 max-w-xs text-xs leading-6 text-ivory/60">
+          <p className="mt-4 max-w-xs text-sm leading-6 text-ivory/60">
             An Indian export business connecting buyers with spices, grains and
             pulses from India.
           </p>
-          <p className="mt-5 text-[9px] font-bold uppercase tracking-[.18em] text-white/80">
+          <p className="mt-5 text-[11px] font-bold uppercase tracking-[.18em] text-white/80">
             Spices, grains &amp; pulses.
           </p>
         </div>
         <div>
-          <h3 className="text-[9px] font-bold uppercase tracking-label text-white/80">
+          <h3 className="text-xs font-bold uppercase tracking-label text-white/80">
             Quick links
           </h3>
           <ul className="mt-4 space-y-3">
@@ -599,7 +629,7 @@ export function Footer() {
               <li key={label}>
                 <Link
                   href={href}
-                  className="text-xs text-ivory/65 transition hover:text-ivory"
+                  className="text-sm text-ivory/65 transition hover:text-ivory"
                 >
                   {label}
                 </Link>
@@ -608,7 +638,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-[9px] font-bold uppercase tracking-label text-white/80">
+          <h3 className="text-xs font-bold uppercase tracking-label text-white/80">
             Product range
           </h3>
           <ul className="mt-4 space-y-3">
@@ -616,7 +646,7 @@ export function Footer() {
               <li key={p.name}>
                 <Link
                   href="/products"
-                  className="text-xs text-ivory/65 transition hover:text-ivory"
+                  className="text-sm text-ivory/65 transition hover:text-ivory"
                 >
                   {p.name}
                 </Link>
@@ -625,33 +655,33 @@ export function Footer() {
           </ul>
         </div>
         <div className="col-span-2 lg:col-span-1">
-          <h3 className="text-[9px] font-bold uppercase tracking-label text-white/80">
+          <h3 className="text-xs font-bold uppercase tracking-label text-white/80">
             Get in touch
           </h3>
-          <div className="mt-4 space-y-3 text-xs leading-5 text-ivory/70">
+          <div className="mt-4 space-y-3 text-sm leading-6 text-ivory/70">
             {company.phones.map((phone) => (
               <a key={phone.label} href={phone.href} className="flex items-center gap-2 transition hover:text-ivory">
-                <Phone size={13} className="shrink-0 text-white/80" /> {phone.label}
+                <Phone size={15} className="shrink-0 text-white/80" /> {phone.label}
               </a>
             ))}
             <a href={company.emailHref} className="flex items-start gap-2 break-all transition hover:text-ivory">
-              <Mail size={13} className="mt-0.5 shrink-0 text-white/80" /> {company.email}
+              <Mail size={15} className="mt-0.5 shrink-0 text-white/80" /> {company.email}
             </a>
             <p className="flex items-start gap-2">
-              <MapPin size={13} className="mt-0.5 shrink-0 text-white/80" />
+              <MapPin size={15} className="mt-0.5 shrink-0 text-white/80" />
               <span>{company.address.map((line) => <span key={line} className="block">{line}</span>)}</span>
             </p>
           </div>
           <Link
             href="#inquiry"
-            className="mt-4 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.13em] text-ivory"
+            className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.13em] text-ivory"
           >
-            Send an inquiry <ChevronRight size={14} />
+            Send an inquiry <ChevronRight size={16} />
           </Link>
         </div>
       </div>
       <div className="border-t border-ivory/15">
-        <div className="section-wrap flex flex-col justify-between gap-3 py-5 text-[9px] text-ivory/45 sm:flex-row">
+        <div className="section-wrap flex flex-col justify-between gap-3 py-5 text-[11px] text-ivory/45 sm:flex-row">
           <span>
             © {new Date().getFullYear()} {company.name}. All rights reserved.
           </span>

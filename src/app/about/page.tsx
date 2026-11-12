@@ -1,4 +1,4 @@
-import { AboutSection, Footer } from "@/components/sections";
+import { Footer } from "@/components/sections";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
 import { Compass, Handshake, Leaf, MessageCircle } from "lucide-react";
@@ -15,7 +15,7 @@ export default function AboutPage() {
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-ivory/70 md:text-base">A Gujarat-based export partner bringing care, clarity and a sense of place to every conversation.</p>
           </div>
         </section>
-        <section className="bg-ivory py-16 md:py-24">
+        <section className="bg-white py-16 md:py-24">
           <div className="section-wrap">
             <Reveal className="mx-auto max-w-3xl text-center">
               <p className="eyebrow">What guides us</p>
@@ -43,13 +43,12 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-        <AboutSection standalone />
-        <section className="bg-cream py-16 md:py-24">
+        <section className="bg-forest-deep py-16 text-white md:py-24">
           <div className="section-wrap">
             <Reveal className="mx-auto max-w-3xl text-center">
-              <p className="eyebrow">From enquiry to export</p>
-              <h2 className="section-title mt-3">A considered journey, from first conversation onward</h2>
-              <p className="section-copy mx-auto">A simple, collaborative process shaped around your requirements.</p>
+              <p className="eyebrow !text-white/80">From enquiry to export</p>
+              <h2 className="section-title mt-3 !text-white">A considered journey, from first conversation onward</h2>
+              <p className="section-copy mx-auto !text-white/70">A simple, collaborative process shaped around your requirements.</p>
             </Reveal>
             <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {[
@@ -59,9 +58,34 @@ export default function AboutPage() {
                 ["04", "Move forward", "Coordinate next steps with clear, responsive communication."],
               ].map(([number, title, copy]) => (
                 <Reveal key={number} className="h-full">
-                  <article className="group h-full min-h-40 border border-gold/35 bg-ivory p-6 transition-colors duration-200 hover:border-gold sm:p-7">
-                    <span className="text-[10px] font-bold uppercase tracking-label text-terracotta">{number}</span>
-                    <h3 className="mt-5 font-display text-xl font-semibold leading-snug text-forest">{title}</h3>
+                  <article className="group h-full min-h-40 border border-white/20 bg-white/5 p-6 transition-colors duration-200 hover:border-white/50 sm:p-7">
+                    <span className="text-[10px] font-bold uppercase tracking-label text-white/70">{number}</span>
+                    <h3 className="mt-5 font-display text-xl font-semibold leading-snug text-white">{title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-white/70">{copy}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="bg-white py-16 md:py-24">
+          <div className="section-wrap">
+            <Reveal className="mx-auto max-w-2xl text-center">
+              <p className="eyebrow">How we work</p>
+              <h2 className="section-title mt-3">A thoughtful partner for every shipment</h2>
+              <p className="section-copy mx-auto">Good export relationships begin with listening. We take time to understand each buyer’s market, product needs and expectations, then work through the details together.</p>
+            </Reveal>
+            <div className="mt-12 grid border-y border-charcoal/10 md:grid-cols-3">
+              {[
+                ["01", "Start with your needs", "Share the products, grades, volumes and destination market you have in mind. We welcome clear questions and practical conversations."],
+                ["02", "Align on the details", "Discuss specifications, availability, packaging preferences and timelines before moving ahead, so expectations are understood on both sides."],
+                ["03", "Build a lasting relationship", "We value responsive communication and dependable coordination, with the goal of creating partnerships that can grow over time."],
+              ].map(([number, title, copy], index) => (
+                <Reveal key={number} className="group h-full">
+                  <article className={`relative h-full px-6 py-8 md:px-7 ${index > 0 ? "border-t border-charcoal/10 md:border-t-0 md:border-l" : ""}`}>
+                    <span className="absolute inset-x-6 top-0 h-px origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100 md:inset-x-7" />
+                    <span className="font-display text-3xl text-terracotta/75 transition-transform duration-300 group-hover:-translate-y-1">{number}</span>
+                    <h3 className="mt-5 font-display text-lg font-semibold uppercase leading-snug text-forest">{title}</h3>
                     <p className="mt-3 text-sm leading-6 text-charcoal/65">{copy}</p>
                   </article>
                 </Reveal>
@@ -69,42 +93,18 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-        <section className="bg-ivory py-16 md:py-24">
-          <div className="section-wrap">
-            <Reveal className="mx-auto max-w-2xl text-center">
-              <p className="eyebrow">How we work</p>
-              <h2 className="section-title mt-3">A thoughtful partner for every shipment</h2>
-              <p className="section-copy mx-auto">Good export relationships begin with listening. We take time to understand each buyer’s market, product needs and expectations, then work through the details together.</p>
-            </Reveal>
-            <div className="mt-12 divide-y divide-charcoal/10 border-y border-charcoal/10 md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
-              {[
-                ["01", "Start with your needs", "Share the products, grades, volumes and destination market you have in mind. We welcome clear questions and practical conversations."],
-                ["02", "Align on the details", "Discuss specifications, availability, packaging preferences and timelines before moving ahead, so expectations are understood on both sides."],
-                ["03", "Build a lasting relationship", "We value responsive communication and dependable coordination, with the goal of creating partnerships that can grow over time."],
-              ].map(([number, title, copy]) => (
-                <Reveal key={number} className="h-full">
-                  <article className="group h-full py-7 md:px-7 md:py-8">
-                    <span className="font-display text-3xl text-terracotta/75 transition-colors group-hover:text-terracotta">{number}</span>
-                    <h3 className="mt-4 font-display text-2xl text-forest">{title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-charcoal/65">{copy}</p>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-        <section className="bg-cream py-16 md:py-24">
+        {/* <section className="bg-forest-deep py-16 text-white md:py-24">
           <div className="section-wrap grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
             <Reveal>
-              <p className="eyebrow">Our perspective</p>
-              <h2 className="section-title mt-3">Local knowledge, open to the world</h2>
+              <p className="eyebrow !text-white/80">Our perspective</p>
+              <h2 className="section-title mt-3 !text-white">Local knowledge, open to the world</h2>
             </Reveal>
             <Reveal>
-              <p className="section-copy">Based in Unjha, Gujarat, Khushi Exim is connected to a region known for its agricultural trade and spice heritage. We bring that Indian perspective to conversations with buyers across markets, with care for the origins of our products and the needs of the people who source them.</p>
-              <p className="mt-4 text-sm leading-7 text-charcoal/65">Whether you are exploring a first enquiry or looking to expand an existing range, we aim to make the conversation straightforward, attentive and focused on a practical fit.</p>
+              <p className="section-copy !text-white/75">Based in Unjha, Gujarat, Khushi Exim is connected to a region known for its agricultural trade and spice heritage. We bring that Indian perspective to conversations with buyers across markets, with care for the origins of our products and the needs of the people who source them.</p>
+              <p className="mt-4 text-sm leading-7 text-white/70">Whether you are exploring a first enquiry or looking to expand an existing range, we aim to make the conversation straightforward, attentive and focused on a practical fit.</p>
             </Reveal>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer />
     </>

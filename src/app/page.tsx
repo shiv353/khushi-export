@@ -15,7 +15,7 @@ export default function HomePage() {
         <GrowthSection />
         <CertificationSection />
         <MarketAreaSection />
-        <section id="inquiry" className="bg-cream py-20 md:py-28">
+        <section id="inquiry" className="bg-white py-20 md:py-28">
           <Reveal className="section-wrap grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
             <ContactIntro />
             <InquiryForm />
