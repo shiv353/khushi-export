@@ -9,11 +9,35 @@ const fieldClass =
 
 export function InquiryForm() {
   const [submitted, setSubmitted] = useState(false);
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!event.currentTarget.reportValidity()) return;
-    setSubmitted(true);
-    event.currentTarget.reset();
+    const form = event.currentTarget;
+    if (submitting || !form.reportValidity()) return;
+
+    setError("");
+    setSubmitting(true);
+    try {
+      const response = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
+      });
+
+      if (!response.ok) {
+        setError("We couldn't submit your inquiry. Please try again.");
+        return;
+      }
+
+      form.reset();
+      setSubmitted(true);
+    } catch {
+      setError("We couldn't reach the server. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted)
@@ -25,13 +49,12 @@ export function InquiryForm() {
         <span className="grid size-14 place-items-center rounded-full bg-forest/10 text-forest">
           <CheckCircle2 size={26} />
         </span>
-        <p className="eyebrow mt-6">Details received in this preview</p>
+        <p className="eyebrow mt-6">Inquiry received</p>
         <h3 className="mt-2 font-display text-2xl text-forest">
           Thank you for reaching out.
         </h3>
         <p className="mt-3 max-w-sm text-xs leading-6 text-charcoal/65">
-          Your form was validated successfully. This demo does not send email or
-          store your inquiry.
+          Your inquiry has been saved. Our team will be in touch.
         </p>
         <Button
           className="mt-6"
@@ -144,15 +167,20 @@ export function InquiryForm() {
         />
       </label>
       <div className="flex flex-col items-start justify-between gap-3 pt-1 sm:flex-row sm:items-center">
-        <Button type="submit" variant="terracotta">
-          Submit inquiry <ArrowRight size={15} />
+        <Button type="submit" variant="terracotta" disabled={submitting}>
+          {submitting ? "Sending..." : "Submit inquiry"} <ArrowRight size={15} />
         </Button>
         <p className="text-[9px] leading-5 text-charcoal/45">
           Required fields are marked with{" "}
-          <span className="text-terracotta">*</span>. This preview does not send
-          your details.
+          <span className="text-terracotta">*</span>. Your inquiry will be
+          saved for our team to review.
         </p>
       </div>
+      {error && (
+        <p role="alert" className="text-xs leading-5 text-terracotta">
+          {error}
+        </p>
+      )}
     </form>
   );
 }

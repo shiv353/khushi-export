@@ -13,11 +13,24 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## MongoDB configuration
+
+Set `MONGODB_URI` to your MongoDB connection string in `.env.local` for local
+development and in the deployment platform's environment variables for
+production. Keep this value private and never commit it. Inquiries are stored
+in the `khushi-exim` database and `khushi-exim` collection.
+
+The form submits to `/api/inquiries`, and `/admin` displays the latest 500
+submissions in an AG Grid with search, column filters, sorting, and pagination.
+**The admin page is currently public and has no authentication.
+Do not use it with real customer inquiries until access protection is added.**
+
 ## Deploy to Vercel
 
 1. Import this repository into Vercel and select **Next.js** as the framework.
 2. Keep the project root and default build settings.
-3. Deploy. No environment variables are required.
+3. Add `MONGODB_URI` in the project's Vercel environment variables before
+   deploying.
 
 Vercel uses the npm lockfile to install dependencies and runs `npm run build`.
 To verify a production build locally, run:
@@ -28,6 +41,7 @@ npm run build
 
 ## Inquiry form
 
-The inquiry form currently validates fields in the browser but does not send or
-store submissions. Connect it to an email or CRM service before relying on it
-to receive customer enquiries.
+The form validates submissions in the browser and on the server, then stores
+them in MongoDB through `/api/inquiries`. The latest 500 submissions appear at
+`/admin`. That page currently has no authentication; protect it before using it
+with real customer data.
