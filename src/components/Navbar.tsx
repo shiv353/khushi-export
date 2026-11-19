@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,30 +11,7 @@ import { company } from "@/data/company";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const pathname = usePathname();
-
-  useEffect(() => {
-    if (pathname !== "/") return;
-    const sectionIds = navigation.map((item) => item.href.slice(1));
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((section): section is HTMLElement => section !== null);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visibleSections[0]) setActiveSection(visibleSections[0].target.id);
-      },
-      { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.1, 0.25, 0.5, 0.75] },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-charcoal/10 bg-ivory/95 backdrop-blur-md">
@@ -67,14 +44,24 @@ export function Navbar() {
           className="hidden items-center gap-7 lg:flex"
         >
           {navigation.map((item) =>
+              item.label !== "Contact" ? (
               <Link
                 key={item.label}
                 href={item.href.startsWith("/") ? item.href : `/${item.href}`}
-                aria-current={(pathname === "/products" && item.label === "Products") || (pathname === "/about" && item.label === "About Us") || (pathname === "/certificate" && item.label === "Certification") || (pathname === "/" && activeSection === item.href.slice(1)) ? "location" : undefined}
-                className={`nav-underline text-[11px] font-semibold transition-colors hover:text-forest ${(pathname === "/products" && item.label === "Products") || (pathname === "/about" && item.label === "About Us") || (pathname === "/certificate" && item.label === "Certification") || (pathname === "/" && activeSection === item.href.slice(1)) ? "is-active text-forest" : "text-charcoal/75"}`}
+                aria-current={(pathname === "/products" && item.label === "Products") || (pathname === "/about" && item.label === "About Us") || (pathname === "/certificate" && item.label === "Certification") || (pathname === "/" && item.label === "Home") ? "page" : undefined}
+                className={`nav-underline text-[11px] font-semibold transition-colors hover:text-forest ${(pathname === "/products" && item.label === "Products") || (pathname === "/about" && item.label === "About Us") || (pathname === "/certificate" && item.label === "Certification") || (pathname === "/" && item.label === "Home") ? "is-active text-forest" : "text-charcoal/75"}`}
               >
                 {item.label}
               </Link>
+              ) : (
+              <Link
+                key={item.label}
+                href={item.href.startsWith("/") ? item.href : `/${item.href}`}
+                className="text-[11px] font-semibold text-charcoal/75 transition-colors hover:text-forest"
+              >
+                {item.label}
+              </Link>
+              )
           )}
         </nav>
         <div className="hidden lg:block">
