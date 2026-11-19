@@ -1,7 +1,7 @@
 import { Footer } from "@/components/sections";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
-import { Compass, Handshake, Leaf, MessageCircle } from "lucide-react";
+import { Building2, Compass, Handshake, Leaf, MessageCircle, Sprout } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -69,6 +69,40 @@ export default function AboutPage() {
           </div>
         </section>
         <section className="bg-white py-16 md:py-24">
+          <div className="section-wrap grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            <Reveal>
+              <p className="eyebrow">Our established foundation</p>
+              <h2 className="section-title mt-3">Built on experience in agricultural trade</h2>
+              <p className="section-copy">Khushi Exim is an associated export venture of <strong className="font-semibold text-forest">Patel Piyushkumar Kantilal</strong>, an established agricultural commodity trading business based at APMC Unjha in Gujarat.</p>
+              <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden border border-charcoal/10 bg-charcoal/10">
+                <div className="bg-white p-5 md:p-6">
+                  <span className="block font-display text-4xl leading-none text-terracotta md:text-5xl">2003</span>
+                  <span className="mt-3 block text-xs font-bold uppercase tracking-label text-forest">Established</span>
+                </div>
+                <div className="bg-white p-5 md:p-6">
+                  <Building2 size={36} strokeWidth={1.35} className="text-terracotta" />
+                  <span className="mt-3 block text-xs font-bold uppercase tracking-label text-forest">APMC Unjha</span>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal className="border border-charcoal/10 bg-white p-7 md:p-10">
+              <div className="flex items-start gap-4">
+                <span className="flex size-11 shrink-0 items-center justify-center border border-terracotta/20 bg-white text-terracotta">
+                  <Sprout size={22} strokeWidth={1.7} />
+                </span>
+                <div>
+                  <h3 className="font-display text-xl font-semibold text-forest md:text-2xl">Our parent business</h3>
+                  <p className="mt-3 text-sm leading-7 text-charcoal/70">Established in 2003, Patel Piyushkumar Kantilal has developed extensive experience in domestic agricultural trading, with a core focus on cumin seeds (Jeera) and Isabgol (Psyllium Husk).</p>
+                </div>
+              </div>
+              <p className="mt-6 text-sm leading-7 text-charcoal/70">Operating from the Agricultural Produce Market Committee (APMC), Unjha — one of India&apos;s prominent hubs for agricultural commodities and spices — the business has built practical knowledge of commodity sourcing, quality standards, market dynamics and customer relationships.</p>
+              <div className="mt-7 border-l-2 border-gold pl-5">
+                <p className="text-sm leading-7 text-charcoal/75">Khushi Exim represents the next stage of this journey: an associated venture created to expand the product portfolio and explore opportunities in international import and export, while carrying forward the experience and established business values of its parent business.</p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+        {/* <section className="bg-white py-16 md:py-24">
           <div className="section-wrap">
             <Reveal className="mx-auto max-w-2xl text-center">
               <p className="eyebrow">How we work</p>
@@ -92,7 +126,7 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
         {/* <section className="bg-forest-deep py-16 text-white md:py-24">
           <div className="section-wrap grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
             <Reveal>

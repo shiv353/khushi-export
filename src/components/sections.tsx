@@ -189,7 +189,7 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
           <div className="relative overflow-hidden rounded-xl border border-gold/40 bg-cream p-2 shadow-soft">
             <div className="relative aspect-[4/4.7] overflow-hidden rounded-lg">
             <Image
-              src="/images/about.jpg"
+              src="/images/screen.png"
               alt="Hands sorting spices at a woven work surface"
               fill
               sizes="(max-width: 1024px) 90vw, 44vw"
@@ -449,6 +449,29 @@ export function GrowthSection() {
 }
 
 export function CertificationSection() {
+  const credentials = [
+    {
+      name: "FSSAI",
+      src: "/images/fssi-logo.png",
+    },
+    {
+      name: "GST",
+      src: "/images/GST.png",
+    },
+    {
+      name: "DGFT",
+      src: "/images/DGFT.png",
+    },
+    {
+      name: "APEDA",
+      src: "/images/apeda-seeklogo.svg",
+    },
+    {
+      name: "Spices Board India",
+      src: "/images/sboi.png",
+    },
+  ];
+
   return (
     <section id="certifications" className="bg-cream py-20 md:py-24">
       <div className="section-wrap">
@@ -458,27 +481,23 @@ export function CertificationSection() {
             Certifications & business credentials
           </h2>
           <p className="section-copy mx-auto">
-            We believe in sharing clear, accurate information as our business
-            credentials are prepared.
+            Current export credentials supporting transparent and informed buyer conversations.
           </p>
         </Reveal>
-        <Reveal className="mx-auto mt-10 grid max-w-5xl grid-cols-3 items-start gap-x-5 gap-y-8 sm:grid-cols-6 sm:gap-x-8">
-          {Array.from({ length: 6 }, (_, index) => (
+        <Reveal className="mx-auto mt-10 grid max-w-6xl grid-cols-2 items-stretch gap-3 sm:grid-cols-3 lg:grid-cols-5 sm:gap-5">
+          {credentials.map(({ name, src }) => (
             <div
-              key={index}
-              className="flex flex-col items-center gap-2 text-center"
+              key={name}
+              className="flex min-h-36 items-center justify-center rounded-sm border border-gold/25 bg-white px-5 py-6"
             >
-              <span className="relative h-16 w-full max-w-[140px]">
+              <span className="relative h-24 w-full max-w-[180px]">
                 <Image
-                  src="/images/fssi-logo.png"
-                  alt="FSSAI logo used as a placeholder"
+                  src={src}
+                  alt={`${name} official logo`}
                   fill
-                  sizes="(max-width: 640px) 25vw, 140px"
+                  sizes="(max-width: 640px) 70vw, 180px"
                   className="object-contain"
                 />
-              </span>
-              <span className="text-[8px] font-bold uppercase tracking-[.12em] text-charcoal/55">
-                Placeholder
               </span>
             </div>
           ))}

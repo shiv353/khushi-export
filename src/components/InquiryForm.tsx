@@ -7,7 +7,13 @@ import { Button } from "@/components/ui/button";
 const fieldClass =
   "w-full border border-charcoal/15 bg-sage px-3.5 py-3 text-xs text-charcoal outline-none transition placeholder:text-charcoal/35 focus:border-forest focus:ring-2 focus:ring-gold/20";
 
-export function InquiryForm() {
+export function InquiryForm({
+  initialProduct = "",
+  onClose,
+}: {
+  initialProduct?: string;
+  onClose?: () => void;
+}) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -59,9 +65,9 @@ export function InquiryForm() {
         <Button
           className="mt-6"
           variant="outline"
-          onClick={() => setSubmitted(false)}
+          onClick={() => (onClose ? onClose() : setSubmitted(false))}
         >
-          Send another inquiry <ArrowRight size={14} />
+          {onClose ? "Close" : "Send another inquiry"} <ArrowRight size={14} />
         </Button>
       </div>
     );
@@ -69,7 +75,7 @@ export function InquiryForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 border border-charcoal/10 bg-sage p-5 shadow-soft sm:p-7"
+      className="space-y-4 border border-charcoal/10 bg-sage p-4 shadow-soft sm:p-7"
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block">
@@ -153,6 +159,7 @@ export function InquiryForm() {
             className={fieldClass}
             name="products"
             placeholder="e.g. turmeric, cumin"
+            defaultValue={initialProduct}
           />
         </label>
       </div>
