@@ -620,8 +620,8 @@ export function Footer() {
       <div className="section-wrap grid grid-cols-2 gap-10 py-14 lg:grid-cols-[1.5fr_.8fr_.9fr_1fr] lg:gap-12">
         <div className="col-span-2 lg:col-span-1">
           <Link href="#home" className="inline-flex items-center gap-3">
-            <span className="relative size-11 shrink-0">
-              <Image src="/images/khushi-exim-mark.png" alt="" fill sizes="44px" className="object-contain" />
+            <span className="relative size-12 shrink-0">
+              <Image src="/images/khushi-exim-logo.png" alt="" fill sizes="44px" className="object-contain" />
             </span>
             <span className="leading-tight"><span className="block font-display text-xl">{company.name}</span><span className="mt-1 block text-[10px] font-bold uppercase tracking-[.16em] text-white/80">{company.tagline}</span></span>
           </Link>

@@ -23,7 +23,7 @@ export function Navbar() {
         >
           <span className="relative size-11 shrink-0">
             <Image
-              src="/images/khushi-exim-mark.png"
+              src="/images/khushi-exim-logo.png"
               alt=""
               fill
               sizes="44px"
