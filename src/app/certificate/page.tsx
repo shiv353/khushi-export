@@ -1,8 +1,24 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/sections";
 import { Reveal } from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Export Certifications & Registrations",
+  description:
+    "Review Khushi Exim’s FSSAI, GST, IEC, APEDA and Spices Board credentials. Contact us to confirm documentation for your product and destination market.",
+  alternates: {
+    canonical: "/certificate",
+  },
+  openGraph: {
+    title: "Export Certifications & Registrations | Khushi Exim",
+    description:
+      "Review Khushi Exim’s export, food safety and trade registration credentials.",
+    url: "/certificate",
+  },
+};
 
 const credentials = [
   {

@@ -12,24 +12,24 @@ export const products: Product[] = [
     category: "Spices",
     description:
       "Premium whole and ground spices, carefully sourced for rich flavour, vibrant colour, and consistent quality.",
-    image: "/images/turmeric.jpg",
-    alt: "Golden turmeric roots and powder",
+    image: "/images/spices.avif",
+    alt: "An assortment of Indian spices",
   },
   {
     name: "Grains",
     category: "Grains",
     description:
       "Quality grains selected for purity, freshness, and nutritional value, ideal for food manufacturers and bulk buyers.",
-    image: "/images/chilli.jpg",
-    alt: "Dried red Indian chillies",
+    image: "/images/grains.avif",
+    alt: "Assorted grains",
   },
   {
     name: "Pulses",
     category: "Pulses",
     description:
       "Carefully selected pulses rich in protein and natural goodness, offering consistent quality for everyday cooking and food processing.",
-    image: "/images/cumin.jpg",
-    alt: "Cumin seeds in a rustic bowl",
+    image: "/images/pulses.avif",
+    alt: "Assorted pulses",
   },
 ];
 

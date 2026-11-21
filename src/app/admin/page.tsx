@@ -1,8 +1,21 @@
+import type { Metadata } from "next";
 import { getInquiryCollection } from "@/lib/mongodb";
 import {
   AdminInquiriesGrid,
   type InquiryRow,
 } from "@/components/AdminInquiriesGrid";
+
+export const metadata: Metadata = {
+  title: "Customer Inquiries",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
 
 export const dynamic = "force-dynamic";
 

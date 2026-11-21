@@ -1,7 +1,23 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/sections";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
 import { Building2, Compass, Handshake, Leaf, MessageCircle, Sprout } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About Our Indian Export Business",
+  description:
+    "Learn about Khushi Exim, a Gujarat-based export venture rooted in Unjha’s agricultural trade and connecting international buyers with Indian products.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Our Indian Export Business | Khushi Exim",
+    description:
+      "Learn about Khushi Exim, a Gujarat-based export venture rooted in Unjha’s agricultural trade.",
+    url: "/about",
+  },
+};
 
 export default function AboutPage() {
   return (

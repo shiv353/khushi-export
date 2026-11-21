@@ -31,6 +31,9 @@ Do not use it with real customer inquiries until access protection is added.**
 2. Keep the project root and default build settings.
 3. Add `MONGODB_URI` in the project's Vercel environment variables before
    deploying.
+4. The SEO canonical URLs and sitemap currently use
+   `https://khushi-export.vercel.app`. Set `NEXT_PUBLIC_SITE_URL` to the final
+   HTTPS site origin when the custom domain is ready.
 
 Vercel uses the npm lockfile to install dependencies and runs `npm run build`.
 To verify a production build locally, run:
